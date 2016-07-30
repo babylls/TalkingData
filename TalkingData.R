@@ -1,7 +1,6 @@
 library(data.table)
 require(bit64)
 
-View(app_event)
 app_event <- fread("app_events.csv")
 app_labels <- fread("app_labels.csv")
 events <- fread("events.csv")
