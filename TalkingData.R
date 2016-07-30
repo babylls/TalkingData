@@ -22,7 +22,7 @@ phone_brand_device_model <- unique(phone_brand_device_model)
 mergedevents <- merge(mergedevents, phone_brand_device_model, all.x=TRUE, by="device_id")
 
 setkey(app_event, event_id)
-allevents <- merge(app_event, mergedevents, all.x=TRUE, by="event_id")
+allevents <- merge(app_event, mergedevents, all=TRUE, by="event_id")
 rm(mergedevents)
 
 setkey(app_labels, app_id)
@@ -36,3 +36,7 @@ rm(allevents)
 setkey(label_categories, label_id)
 alleventsappslabels <- merge(alleventsapps, label_categories, all.x=TRUE, by="label_id")
 rm(alleventsapps)
+
+#hist(alleventsappslabels$age)
+
+
